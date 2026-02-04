@@ -1,0 +1,99 @@
+/* Custom Sky Blue Theme for Django Unfold */
+
+/* Primary color adjustments */
+:root {
+  --color-primary-50: 240 249 255;
+  --color-primary-100: 224 242 254;
+  --color-primary-200: 186 230 253;
+  --color-primary-300: 125 211 252;
+  --color-primary-400: 56 189 248;
+  --color-primary-500: 14 165 233;
+  --color-primary-600: 2 132 199;
+  --color-primary-700: 3 105 161;
+  --color-primary-800: 7 89 133;
+  --color-primary-900: 12 74 114;
+  --color-primary-950: 8 47 73;
+}
+
+/* Apply sky blue to various elements */
+.bg-primary-500 {
+  background-color: rgb(var(--color-primary-500));
+}
+
+.text-primary-500 {
+  color: rgb(var(--color-primary-500));
+}
+
+.border-primary-500 {
+  border-color: rgb(var(--color-primary-500));
+}
+
+/* Admin header with sky blue */
+.header {
+  background-color: rgb(var(--color-primary-600));
+  border-bottom: 1px solid rgb(var(--color-primary-700));
+}
+
+/* Sidebar navigation with sky blue */
+.sidebar-content nav ul li a:hover,
+.sidebar-content nav ul li a:focus {
+  background-color: rgba(var(--color-primary-100), 0.5);
+  border-left-color: rgb(var(--color-primary-500));
+}
+
+/* Buttons with sky blue */
+.btn-primary {
+  background-color: rgb(var(--color-primary-500));
+  border-color: rgb(var(--color-primary-600));
+}
+
+.btn-primary:hover {
+  background-color: rgb(var(--color-primary-600));
+  border-color: rgb(var(--color-primary-700));
+}
+
+/* Links with sky blue */
+a {
+  color: rgb(var(--color-primary-600));
+}
+
+a:hover {
+  color: rgb(var(--color-primary-700));
+}
+
+/* Table headers with sky blue */
+.table th {
+  background-color: rgba(var(--color-primary-100), 0.5);
+  color: rgb(var(--color-primary-700));
+}
+
+/* Form inputs focus with sky blue */
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: rgb(var(--color-primary-500));
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-200), 0.4);
+}
+
+/* Card borders with sky blue */
+.card {
+  border: 1px solid rgba(var(--color-primary-200), 0.5);
+}
+
+/* Status indicators with sky blue variations */
+.status-success {
+  color: rgb(var(--color-primary-500));
+}
+
+.status-warning {
+  color: #f59e0b;
+}
+
+.status-error {
+  color: #ef4444;
+}
+
+/* Progress bars with sky blue */
+.progress-bar {
+  background-color: rgb(var(--color-primary-500));
+}
