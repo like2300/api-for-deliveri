@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1_%w-eq*f8v+4i&hcwwq7s^r))0a_qjkden@ysx)0u9*$1$rv!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -41,8 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'shop',
 ]
+
+# Custom user model
+AUTH_USER_MODEL = 'shop.VendorUser'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -120,8 +124,12 @@ USE_TZ = True
 
 # Django REST Framework Configuration
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.AllowAny',  # Changed back to allow any by default
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20
@@ -205,13 +213,14 @@ UNFOLD = {
         # Add custom JS if needed
     ],
 }
-
-# CORS Configuration
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Vite default port
+    "file://",  # Allow local file access
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://localhost",
+    "http://127.0.0.1",
+    "http://localhost:5173"
 ]
-
-# Optional: Allow credentials to be sent with cross-origin requests
 CORS_ALLOW_CREDENTIALS = True
 
 # Optional: Specify which headers can be used during the actual request

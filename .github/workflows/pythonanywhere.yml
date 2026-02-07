@@ -1,0 +1,22 @@
+name: Deploy API to PythonAnywhere
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Git Pull and Reload on PA
+        run: |
+          # 1. On effectue le git pull via l'API Console
+          curl -H "Authorization: Token ${{ secrets.PA_TOKEN }}" \
+               -X POST https://www.pythonanywhere.com/api/v0/user/delivri/consoles/shared_with_me/ \
+               -d "command=cd /home/delivri/api-for-deliveri && git pull origin main"
+
+          # 2. On redémarre l'application Web
+          curl -H "Authorization: Token ${{ secrets.PA_TOKEN }}" \
+               -X POST https://www.pythonanywhere.com/api/v0/user/delivri/webapps/delivri.pythonanywhere.com/reload/
