@@ -213,15 +213,8 @@ UNFOLD = {
         # Add custom JS if needed
     ],
 }
-CORS_ALLOWED_ORIGINS = [
-    "file://",  # Allow local file access
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "http://localhost",
-    "http://127.0.0.1",
-    "http://localhost:5173"
-]
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = False
 
 # Optional: Specify which headers can be used during the actual request
 CORS_ALLOW_HEADERS = [
